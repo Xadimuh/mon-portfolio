@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="htmlElement">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
             color: var(--white);
             width: 270px;
             min-height: 100vh;
-            padding: 48px 24px 24px 24px;
+            padding: 36px 20px 20px 20px;
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
@@ -41,31 +41,53 @@
             z-index: 200;
             border-top-right-radius: 32px;
             border-bottom-right-radius: 32px;
-            transition: transform 0.4s cubic-bezier(.23,1.02,.32,1);
-            backdrop-filter: blur(4px);
+            transition: transform 0.35s cubic-bezier(.23,1.02,.32,1), width 0.35s;
+            backdrop-filter: blur(6px);
+            gap: 12px;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+        .sidebar-top {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        #profile-photo {
+            width: 75%;
+            height: 22vh;
+            border-radius: 0%;
+            object-fit: cover;
+            border: 2.5px solid rgba(255,255,255,0.18);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            flex-shrink: 0;
+            transform: rotate(-90deg);
         }
         .sidebar h1 {
-            font-size: 2.4rem;
-            margin: 0 0 8px 0;
-            letter-spacing: 2px;
+            font-size: 1.5rem;
+            margin: 0;
+            letter-spacing: 1.5px;
+            line-height: 1.05;
             font-family: 'Fira Mono', monospace;
             text-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            animation: fadeInDown 1s;
+            text-align: center;
         }
-        .sidebar p {
-            font-size: 1.13rem;
-            margin: 0 0 18px 0;
-            font-style: italic;
+        .sidebar .subtitle {
+            font-size: 0.92rem;
+            margin: 0;
             opacity: 0.95;
-            animation: fadeInUp 1.2s;
+            font-style: italic;
+            line-height: 1.1;
+            text-align: center;
         }
-        .sidebar .header-contact {
-            font-size: 1rem;
-            margin-bottom: 24px;
-            animation: fadeInUp 1.3s;
+        .header-contact {
+            width: 100%;
+            padding-top: 6px;
+            font-size: 0.95rem;
         }
-        .sidebar .header-contact span,
-        .sidebar .header-contact a {
+        .header-contact span,
+        .header-contact a {
             display: block;
             margin: 6px 0;
             color: var(--white);
@@ -73,13 +95,13 @@
             opacity: 0.92;
             transition: color 0.2s;
         }
-        .sidebar .header-contact a:hover {
+        .header-contact a:hover {
             color: var(--accent);
             text-decoration: underline;
         }
         .sidebar nav {
             width: 100%;
-            margin-top: 24px;
+            margin-top: 8px;
         }
         .sidebar nav ul {
             list-style: none;
@@ -87,17 +109,18 @@
             margin: 0;
         }
         .sidebar nav li {
-            margin: 14px 0;
+            margin: 10px 0;
         }
         .sidebar nav a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 10px;
+            transition: background 0.18s, color 0.18s;
             color: var(--white);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.13rem;
-            letter-spacing: 1px;
-            transition: color 0.2s;
+            font-weight: 600;
+            font-size: 0.95rem;
             position: relative;
-            padding-left: 8px;
         }
         .sidebar nav a::before {
             content: '';
@@ -109,20 +132,41 @@
             margin-right: 10px;
             vertical-align: middle;
             opacity: 0.7;
-            transition: background 0.2s;
         }
-        .sidebar nav a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
+        .sidebar nav a:hover {
+            background: rgba(255,255,255,0.06);
+            color: var(--accent);
+        }
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            width: 100%;
+            justify-content: center;
+        }
+        .language-switcher button {
+            flex: 1;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .language-switcher button:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        .language-switcher button.active {
             background: var(--accent);
-            transition: width 0.3s;
-            position: absolute;
-            left: 0; bottom: -2px;
+            color: var(--primary);
+            border-color: var(--accent);
         }
-        .sidebar nav a:hover::after { width: 100%; }
-        .sidebar nav a:hover { color: var(--accent);}
         .main-content {
             margin-left: 270px;
             flex: 1;
@@ -178,7 +222,7 @@
             list-style: none;
         }
         .skills-list li, .interests-list li, .languages-list li {
-            background: linear-gradient(90deg, #eafaf1 60%, #f7fafc 100%);
+            background: linear-gradient(90deg, #eafaf1 60%, #d6f5e6 100%);
             color: var(--primary);
             padding: 10px 22px;
             border-radius: 22px;
@@ -189,9 +233,6 @@
             border: 1px solid #e0e7ef;
             font-family: 'Fira Mono', monospace;
             word-break: break-word;
-        }
-        .skills-list li {
-            background: linear-gradient(90deg, #eafaf1 60%, #d6f5e6 100%);
         }
         .experience, .education, .projects, .references {
             margin-bottom: 18px;
@@ -207,6 +248,23 @@
         .job-period, .school-period, .project-period {
             color: var(--accent);
             font-size: 0.97em;
+        }
+        .job-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 6px;
+            animation: fadeInLeft 0.8s;
+        }
+        .company-logo, .school-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(42,93,159,0.08);
+            border: 1.5px solid #e0e7ef;
+            padding: 4px;
         }
         .contact-form label {
             display: block;
@@ -225,6 +283,7 @@
             transition: border 0.2s, box-shadow 0.2s;
             font-family: 'Montserrat', Arial, sans-serif;
             box-shadow: 0 1px 4px rgba(42,93,159,0.04);
+            box-sizing: border-box;
         }
         .contact-form input:focus, .contact-form textarea:focus {
             border-color: var(--primary);
@@ -245,7 +304,11 @@
             box-shadow: 0 2px 8px rgba(42,93,159,0.08);
             letter-spacing: 1px;
         }
-        .contact-form button:hover { background: #1d406b; transform: scale(1.04); box-shadow: 0 4px 16px rgba(42,93,159,0.13);}
+        .contact-form button:hover {
+            background: #1d406b;
+            transform: scale(1.04);
+            box-shadow: 0 4px 16px rgba(42,93,159,0.13);
+        }
         footer {
             text-align: center;
             color: #888;
@@ -254,13 +317,11 @@
             letter-spacing: 1px;
             opacity: 0.85;
         }
-        /* Burger menu for mobile */
         .burger {
             display: none;
             position: fixed;
-            top: 24px;
-            right: 154px; /* changé de left: 24px à right: 24px */
-            left: auto;  /* ajouté pour annuler left si présent */
+            top: 14px;
+            right: 26px;
             z-index: 300;
             width: 40px;
             height: 40px;
@@ -282,152 +343,98 @@
             border-radius: 2px;
             transition: all 0.3s;
         }
-        /* Responsive */
         @media (max-width: 1200px) {
             .main-content {
-            padding: 40px 10vw 32px 10vw;
+                padding: 40px 10vw 32px 10vw;
             }
         }
         @media (max-width: 900px) {
             body {
-            flex-direction: column;
+                flex-direction: column;
             }
             .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100vh;
-            width: 220px;
-            transform: translateX(-100%);
-            transition: transform 0.4s cubic-bezier(.23,1.02,.32,1);
-            border-radius: 0 24px 24px 0;
-            z-index: 300;
-            padding: 32px 12px 12px 12px;
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                width: 220px;
+                transform: translateX(-100%);
+                transition: transform 0.4s cubic-bezier(.23,1.02,.32,1);
+                border-radius: 0 24px 24px 0;
+                z-index: 300;
+                padding: 32px 12px 12px 12px;
             }
             .sidebar.open {
-            transform: translateX(0);
+                transform: translateX(0);
             }
             .main-content {
-            margin-left: 0;
-            padding: 32px 8px 24px 8px;
-            width: 100vw;
-            min-width: 0;
+                margin-left: 0;
+                padding: 32px 8px 24px 8px;
+                width: 100vw;
+                min-width: 0;
             }
             .burger {
-            display: flex;
+                display: flex;
             }
             section {
-            padding: 24px 8px;
-            }
-            /* Correction débordement logos entreprises */
-            .job-header {
-            flex-wrap: wrap;
-            gap: 8px;
-            }
-            .company-logo {
-            max-width: 36px;
-            max-height: 36px;
-            width: 36px;
-            height: 36px;
-            }
-            .job-header .job-title,
-            .job-header .job-period {
-            font-size: 0.97rem;
-            word-break: break-word;
-            min-width: 0;
+                padding: 24px 8px;
             }
         }
         @media (max-width: 700px) {
             .sidebar {
-            width: 170px;
-            padding: 18px 4px 8px 4px;
+                width: 170px;
             }
             .sidebar h1 {
-            font-size: 1.3rem;
+                font-size: 1.3rem;
             }
             .sidebar p, .sidebar .header-contact {
-            font-size: 0.93rem;
+                font-size: 0.93rem;
             }
             .sidebar nav a {
-            font-size: 1rem;
+                font-size: 1rem;
             }
             .main-content {
-            padding: 14px 2vw 14px 2vw;
+                padding: 14px 2vw 14px 2vw;
             }
             section {
-            padding: 12px 2vw;
+                padding: 12px 2vw;
             }
             h2 {
-            font-size: 1.1rem;
+                font-size: 1.1rem;
             }
             ul.skills-list, ul.interests-list, ul.languages-list {
-            gap: 7px;
+                gap: 7px;
             }
             .skills-list li, .interests-list li, .languages-list li {
-            padding: 7px 10px;
-            font-size: 0.93rem;
-            }
-            /* Correction débordement logos entreprises */
-            .job-header {
-            flex-wrap: wrap;
-            gap: 6px;
-            }
-            .company-logo {
-            max-width: 28px;
-            max-height: 28px;
-            width: 28px;
-            height: 28px;
-            }
-            .job-header .job-title,
-            .job-header .job-period {
-            font-size: 0.89rem;
-            word-break: break-word;
-            min-width: 0;
+                padding: 7px 10px;
+                font-size: 0.93rem;
             }
         }
         @media (max-width: 500px) {
             .sidebar {
-            width: 100vw;
-            min-width: 0;
-            max-width: 100vw;
-            border-radius: 0;
-            padding: 10px 2vw 8px 2vw;
+                width: 100vw;
+                min-width: 0;
+                max-width: 100vw;
+                border-radius: 0;
+                padding: 10px 2vw 8px 2vw;
             }
             .sidebar.open {
-            transform: translateX(0);
+                transform: translateX(0);
             }
             .main-content {
-            padding: 8px 1vw 8px 1vw;
+                padding: 8px 1vw 8px 1vw;
             }
             section {
-            padding: 8px 2vw;
+                padding: 8px 2vw;
             }
             h2 {
-            font-size: 1rem;
+                font-size: 1rem;
             }
             .skills-list li, .interests-list li, .languages-list li {
-            font-size: 0.85rem;
-            padding: 6px 6px;
-            }
-            /* Correction débordement logos entreprises */
-            .job-header {
-            flex-wrap: wrap;
-            gap: 4px;
-            }
-            .company-logo {
-            max-width: 22px;
-            max-height: 22px;
-            width: 22px;
-            height: 22px;
-            }
-            .job-header .job-title,
-            .job-header .job-period {
-            font-size: 0.8rem;
-            word-break: break-word;
-            min-width: 0;
+                font-size: 0.85rem;
+                padding: 6px 6px;
             }
         }
-        /* Animations */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-40px);}
             to { opacity: 1; transform: translateY(0);}
@@ -445,6 +452,78 @@
             80% { transform: scale(1.05);}
             100% { transform: scale(1); opacity: 1;}
         }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        .name-animated {
+            display: inline-block;
+            font-size: 3.2rem;
+            background: linear-gradient(90deg, #2a5d9f, #5fd2b5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 0.8s ease-out;
+            font-weight: 900;
+        }
+        .surname-animated {
+            display: inline-block;
+            font-size: 3.2rem;
+            background: linear-gradient(90deg, #2a5d9f, #5fd2b5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 0.8s ease-out;
+            font-weight: 900;
+        }
+        .subtitle-animated {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--primary);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+        .education {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .school {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 10px;
+            background: var(--glass);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .school:hover {
+            transform: scale(1.02);
+        }
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .project {
+            padding: 15px;
+            background: #f9fbfc;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        .references {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .reference {
+            padding: 15px;
+            background: #f9fbfc;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -454,285 +533,326 @@
         <span></span>
     </div>
     <aside class="sidebar" id="sidebar">
-        <h1>Khadim GUEYE</h1>
-        <p>Alternant IT – Gestion de projet & Outils métiers<br>Spécialisation ERP, Product Owner junior</p>
-        <div class="header-contact">
-            <span>📍 Franche-Comté, France</span>
-            <span>📞 +33 07 69 96 52 30</span>
-            <span>✉️ <a href="mailto:kgueye.dev@gmail.com">kgueye.dev@gmail.com</a></span>
-            <span>Permis B</span>
-            <span>LinkedIn: <a href="https://www.linkedin.com/in/khadimgueye/" target="_blank">Khadim GUEYE</a></span>
-            
+        <div class="sidebar-top">
+            <img id="profile-photo" src="Images/me.jpeg" alt="Photo de Khadim GUEYE">
         </div>
+       
+        <div class="header-contact">
+            <span data-fr="📍 Belfort, France" data-en="📍 Belfort, France">📍 Belfort, France</span>
+            <span data-fr="📞 +33 7 69 96 52 30" data-en="📞 +33 7 69 96 52 30">📞 +33 7 69 96 52 30</span>
+            <span><a href="mailto:kgueye.dev@gmail.com">✉️ kgueye.dev@gmail.com</a></span>
+            <span><a href="https://www.linkedin.com/in/khadim-g-4108ab221/" target="_blank">LinkedIn: Khadim GUEYE</a></span>
+            <span data-fr="Permis B" data-en="License B">Permis B</span>
+        </div>
+         <div class="language-switcher">
+            <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
+            <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        </div>
+
         <nav>
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#formations">Formations</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#interets">Intérêts</a></li>
-                <li><a href="#langues">Langues</a></li>
-                <li><a href="#references">Références</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#accueil" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="#experience" data-fr="Expérience" data-en="Experience">Expérience</a></li>
+                <li><a href="#competences" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+                <li><a href="#formations" data-fr="Formations" data-en="Education">Formations</a></li>
+                <li><a href="#projets" data-fr="Projets" data-en="Projects">Projets</a></li>
+                <li><a href="#interets" data-fr="Intérêts" data-en="Interests">Intérêts</a></li>
+                <li><a href="#langues" data-fr="Langues" data-en="Languages">Langues</a></li>
+                <li><a href="#references" data-fr="Références" data-en="References">Références</a></li>
+                <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
             </ul>
         </nav>
+
+       
     </aside>
     <main class="main-content">
         <section id="accueil">
-            <h2>Bienvenue</h2>
-            <p>
-            Bienvenue sur mon portfolio ! Actuellement alternant IT chez Vetoquinol, 
-            je me spécialise dans la gestion de projet et l’intégration d’outils métiers (ERP, référentiels fournisseurs, Concur). 
-            Cette expérience me prépare à occuper des postes à responsabilité dans l’IT, en particulier chef de projet IT, Product Owner ou business analyst, 
-            avec une forte dimension innovation et transformation digitale.
+            <h2>
+                <span class="name-animated">KHADIM</span> <span class="surname-animated">G.</span>
+                <br>
+                <span class="subtitle-animated" data-fr="Gestion de projet IT & ERP | Concur · Master Data · Change Management | Ingénieur systèmes embarqués" data-en="IT & ERP Project Management | Concur · Master Data · Change Management | Embedded Systems Engineer">Gestion de projet IT & ERP | Concur · Master Data · Change Management | Ingénieur systèmes embarqués</span>
+            </h2>
+
+            <p data-fr="🎓 Double diplômé en Systèmes Embarqués – IoT et en Entrepreneuriat Technologique & Innovation, je développe une expertise à la croisée de la technique et de la gestion de projet." data-en="🎓 Dual degree holder in Embedded Systems – IoT and Technological Entrepreneurship & Innovation, I develop expertise at the intersection of technology and project management.">
+            🎓 Double diplômé en Systèmes Embarqués – IoT et en Entrepreneuriat Technologique & Innovation, je développe une expertise à la croisée de la technique et de la gestion de projet.
+            </p>
+            <p data-fr="En alternance chez Vetoquinol, je travaille sur des projets ERP (Concur, Master Data Supplier), en appui au chef de projet : spécifications fonctionnelles, suivi de planning, administration des applications, accompagnement au changement et amélioration de la qualité des données." data-en="On an internship at Vetoquinol, I work on ERP projects (Concur, Master Data Supplier), supporting the project manager: functional specifications, schedule monitoring, application administration, change management and data quality improvement.">
+            En alternance chez Vetoquinol, je travaille sur des projets ERP (Concur, Master Data Supplier), en appui au chef de projet : spécifications fonctionnelles, suivi de planning, administration des applications, accompagnement au changement et amélioration de la qualité des données.
+            </p>
+            <p data-fr="Mon objectif : évoluer vers un poste de Chef de projet IT / ERP / Transformation digitale, où je pourrai combiner mes compétences techniques, mon sens de l'organisation et mon goût pour l'innovation." data-en="My goal: to evolve towards an IT Project Manager / ERP / Digital Transformation position, where I can combine my technical skills, organizational sense and passion for innovation.">
+            Mon objectif : évoluer vers un poste de Chef de projet IT / ERP / Transformation digitale, où je pourrai combiner mes compétences techniques, mon sens de l'organisation et mon goût pour l'innovation.
+            </p>
+            <p data-fr="📍 Disponible partout en France et à l'international." data-en="📍 Available throughout France and internationally.">
+            📍 Disponible partout en France et à l'international.
             </p>
         </section>
       
-        <section id="competences">
-            <h2>Compétences</h2>
-            <ul class="skills-list">
-                <li>IoT & Data Science: Arduino, microcontrôleurs, Raspberry Pi, TensorFlow, PowerBI, Firebase, Pandas, Matplotlib, Keras, ScikitLearn, CNN, SpaCy, FreeRTOS, UART, SPI, I2C</li>
-                <li>Systèmes Sécurisés & Cryptographie: Algorithmes, sécurité IoT, Java Card, sécurité embarquée</li>
-                <li>Gestion de projet: Agile/Scrum, UML, Trello, Product design</li>
-                <li>Développement Web & Mobile: React.js, Vue.js, Laravel, Node.js, Flutter, Kotlin, Swift, Next.js</li>
-                <li>Cloud & DevOps: AWS, Azure, Docker, CI/CD, Node-RED</li>
-                <li>Leadership & Entrepreneuriat: Management d’équipe, stratégie digitale</li>
-                <li>Soft skills: Autonomie, rigueur, adaptabilité, écoute, esprit d’équipe, curiosité</li>
-            </ul>
-        </section>
         <section id="experience">
-            <h2>Expérience Professionnelle</h2>
+            <h2 data-fr="Expériences Professionnelles" data-en="Professional Experience">Expériences Professionnelles</h2>
             <div class="experience">
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://www.vetoquinol.com/themes/custom/vetoquinol/logo.svg" alt="Vetoquinol Logo" class="company-logo animate-pop">
-                        <span class="job-title">Développeur - Webmaster</span>
-                        <span class="job-period">VETOQUINOL SA, Juin 2024 - Juil 2024, Lure - France</span>
+                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Vetoquinol Logo" class="company-logo">
+                        <div>
+                            <span class="job-title" data-fr="Alternant IT - Gestion de projet & outils métiers" data-en="IT Intern - Project Management & Business Tools">Alternant IT - Gestion de projet & outils métiers</span>
+                            <span class="job-period" data-fr="VETOQUINOL SA, Août 2025 - Présent, Lure - France" data-en="VETOQUINOL SA, August 2025 - Present, Lure - France">VETOQUINOL SA, Août 2025 - Présent, Lure - France</span>
+                        </div>
                     </div>
                     <ul>
-                        <li>Gestion de la transition et optimisation SEO lors de la migration du site web</li>
-                        <li>Collaboration avec équipes locales et internationales</li>
-                        <li>Recherche sur la surveillance des conditions de stockage des médicaments (ESP32/Arduino, MQTT, Node-RED, base de données + dashboard)</li>
+                        <li data-fr="Acquisition d'une spécialisation sur des outils clés (ERP, référentiels fournisseurs, Concur)" data-en="Acquisition of specialization in key tools (ERP, supplier repositories, Concur)">Acquisition d'une spécialisation sur des outils clés (ERP, référentiels fournisseurs, Concur)</li>
+                        <li data-fr="Formation à la gestion de projet, qualité des données, support utilisateur et amélioration continue" data-en="Training in project management, data quality, user support and continuous improvement">Formation à la gestion de projet, qualité des données, support utilisateur et amélioration continue</li>
+                        <li data-fr="Développement de la rigueur sur les processus métiers et IT, en interaction directe avec les utilisateurs" data-en="Development of rigor in business and IT processes, in direct interaction with users">Développement de la rigueur sur les processus métiers et IT, en interaction directe avec les utilisateurs</li>
                     </ul>
                 </div>
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://www.vetoquinol.com/themes/custom/vetoquinol/logo.svg" alt="Vetoquinol Logo" class="company-logo animate-pop" style="animation-delay:0.1s">
-                        <span class="job-title">Alternant IT - Gestion de projet & outils métiers</span>
-                        <span class="job-period">VETOQUINOL SA, 2024 - Présent, Lure - France</span>
+                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Vetoquinol Logo" class="company-logo">
+                        <div>
+                            <span class="job-title" data-fr="Développeur - Webmaster" data-en="Developer - Webmaster">Développeur - Webmaster</span>
+                            <span class="job-period" data-fr="VETOQUINOL SA, Septembre 2024 - Août 2025, Lure - France" data-en="VETOQUINOL SA, September 2024 - August 2025, Lure - France">VETOQUINOL SA, Septembre 2024 - Août 2025, Lure - France</span>
+                        </div>
                     </div>
                     <ul>
-                        <li>Acquisition d'une spécialisation sur des outils clés (ERP, référentiels fournisseurs, Concur)</li>
-                        <li>Formation à la gestion de projet, qualité des données, support utilisateur et amélioration continue</li>
-                        <li>Développement de la rigueur sur les processus métiers et IT, en interaction directe avec les utilisateurs</li>
-                        <li>Expérience structurante ouvrant des perspectives vers des postes de chef de projet IT, Product Owner ou business analyst</li>
-                        <li>Base solide pour piloter des projets transverses ou évoluer vers des sujets techniques/innovants (IoT)</li>
-                        <li>Choix stratégique pour avoir de l'impact rapidement tout en gardant des portes ouvertes</li>
+                        <li data-fr="Gestion de la transition et optimisation SEO lors de la migration du site web" data-en="Management of transition and SEO optimization during website migration">Gestion de la transition et optimisation SEO lors de la migration du site web</li>
+                        <li data-fr="Collaboration avec équipes locales et internationales" data-en="Collaboration with local and international teams">Collaboration avec équipes locales et internationales</li>
+                        <li data-fr="Recherche sur la surveillance des conditions de stockage des médicaments (ESP32/Arduino, MQTT, Node-RED, base de données + dashboard)" data-en="Research on monitoring medicine storage conditions (ESP32/Arduino, MQTT, Node-RED, database + dashboard)">Recherche sur la surveillance des conditions de stockage des médicaments (ESP32/Arduino, MQTT, Node-RED, base de données + dashboard)</li>
                     </ul>
                 </div>
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Logo_M%C3%A9tropole_du_Grand_Besan%C3%A7on.svg" alt="MetropolyTAN Logo" class="company-logo animate-pop" style="animation-delay:0.2s">
-                        <span class="job-title">Lead Developper IoT</span>
-                        <span class="job-period">MetropolyTAN - Portes du Jura, Sept 2023 - Mai 2024, Montbéliard - France</span>
+                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="MetropolyTAN Logo" class="company-logo">
+                        <div>
+                            <span class="job-title" data-fr="Lead Developper IoT" data-en="Lead Developer IoT">Lead Developper IoT</span>
+                            <span class="job-period" data-fr="MetropolyTAN - Portes du Jura, Septembre 2023 - Mai 2024, Montbéliard - France" data-en="MetropolyTAN - Portes du Jura, September 2023 - May 2024, Montbéliard - France">MetropolyTAN - Portes du Jura, Septembre 2023 - Mai 2024, Montbéliard - France</span>
+                        </div>
                     </div>
                     <ul>
-                        <li>Conception d’une plateforme de gestion de trajets avec open data et IoT</li>
-                        <li>Développement d’algorithmes d’optimisation de parcours</li>
-                        <li>Mise en place d’un système d’authentification sécurisé (JWT, HTTPS)</li>
-                        <li>Optimisation énergétique des systèmes embarqués</li>
-                        <li>Présentation au congrès ROADEF</li>
+                        <li data-fr="Conception d'une plateforme de gestion de trajets avec open data et IoT" data-en="Design of a route management platform with open data and IoT">Conception d'une plateforme de gestion de trajets avec open data et IoT</li>
+                        <li data-fr="Développement d'algorithmes d'optimisation de parcours" data-en="Development of route optimization algorithms">Développement d'algorithmes d'optimisation de parcours</li>
+                        <li data-fr="Mise en place d'un système d'authentification sécurisé (JWT, HTTPS)" data-en="Implementation of a secure authentication system (JWT, HTTPS)">Mise en place d'un système d'authentification sécurisé (JWT, HTTPS)</li>
+                        <li data-fr="Optimisation énergétique des systèmes embarqués" data-en="Energy optimization of embedded systems">Optimisation énergétique des systèmes embarqués</li>
+                        <li data-fr="Présentation au congrès ROADEF" data-en="Presentation at ROADEF conference">Présentation au congrès ROADEF</li>
                     </ul>
                 </div>
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://devalot.com/favicon.ico" alt="Devalot Digital Logo" class="company-logo animate-pop" style="animation-delay:0.3s">
-                        <span class="job-title">Co-Fondateur & Lead Dev</span>
-                        <span class="job-period">Devalot Digital, 2022 - 2023, Dakar - Sénégal</span>
+                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Devalot Digital Logo" class="company-logo">
+                        <div>
+                            <span class="job-title" data-fr="Co-Fondateur & Lead Dev" data-en="Co-Founder & Lead Dev">Co-Fondateur & Lead Dev</span>
+                            <span class="job-period" data-fr="Devalot Digital, 2022 - 2023, Dakar - Sénégal" data-en="Devalot Digital, 2022 - 2023, Dakar - Senegal">Devalot Digital, 2022 - 2023, Dakar - Sénégal</span>
+                        </div>
                     </div>
                     <ul>
-                        <li>Gestion et développement de projets e-commerce et applications mobiles</li>
-                        <li>Mise en place de l’Agile/Scrum et encadrement d’une équipe de 4 devs</li>
-                        <li>Développement backend (PHP, Laravel) et intégration frontend (Angular, Bootstrap)</li>
+                        <li data-fr="Gestion et développement de projets e-commerce et applications mobiles" data-en="Management and development of e-commerce projects and mobile applications">Gestion et développement de projets e-commerce et applications mobiles</li>
+                        <li data-fr="Mise en place de l'Agile/Scrum et encadrement d'une équipe de 4 devs" data-en="Implementation of Agile/Scrum and management of a team of 4 developers">Mise en place de l'Agile/Scrum et encadrement d'une équipe de 4 devs</li>
+                        <li data-fr="Développement backend (PHP, Laravel) et intégration frontend (Angular, Bootstrap)" data-en="Backend development (PHP, Laravel) and frontend integration (Angular, Bootstrap)">Développement backend (PHP, Laravel) et intégration frontend (Angular, Bootstrap)</li>
                     </ul>
                 </div>
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://www.oxytronic.fr/wp-content/uploads/2021/09/logo-oxytronic.svg" alt="Oxytronic Logo" class="company-logo animate-pop" style="animation-delay:0.4s">
-                        <span class="job-title">Ingénieur Systèmes Embarqués & IoT / Full-stack developer</span>
-                        <span class="job-period">Oxytronic & Multiwave Technologies</span>
+                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Oxytronic Logo" class="company-logo">
+                        <div>
+                            <span class="job-title" data-fr="Stage d'observation" data-en="Observation Internship">Stage d'observation</span>
+                            <span class="job-period" data-fr="Oxytronic & Multiwave Technologies, Marseille - France" data-en="Oxytronic & Multiwave Technologies, Marseille - France">Oxytronic & Multiwave Technologies, Marseille - France</span>
+                        </div>
                     </div>
+                    <ul>
+                        <li data-fr="Découverte du secteur aérospatial et santé, approfondissement de la fabrication d'équipements électroniques" data-en="Discovery of aerospace and health sectors, deepening of electronic equipment manufacturing">Découverte du secteur aérospatial et santé, approfondissement de la fabrication d'équipements électroniques</li>
+                    </ul>
                 </div>
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://www.oxytronic.fr/wp-content/uploads/2021/09/logo-oxytronic.svg" alt="Oxytronic Logo" class="company-logo animate-pop" style="animation-delay:0.5s">
-                        <span class="job-title">Stage d’observation</span>
-                        <span class="job-period">Oxytronic & Multiwave Technologies, Marseille - France</span>
+                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Gitechsn Logo" class="company-logo">
+                        <div>
+                            <span class="job-title" data-fr="Stage - Développeur Full-Stack" data-en="Internship - Full-Stack Developer">Stage - Développeur Full-Stack</span>
+                            <span class="job-period" data-fr="Gitechsn, Dakar - Sénégal" data-en="Gitechsn, Dakar - Senegal">Gitechsn, Dakar - Sénégal</span>
+                        </div>
                     </div>
                     <ul>
-                        <li>Découverte du secteur aérospatial et santé, approfondissement de la fabrication d’équipements électroniques</li>
+                        <li data-fr="Développement d'applications web complètes avec technologies modernes" data-en="Development of complete web applications with modern technologies">Développement d'applications web complètes avec technologies modernes</li>
                     </ul>
                 </div>
             </div>
         </section>
-        <style>
-            .job-header {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                margin-bottom: 6px;
-                animation: fadeInLeft 0.8s;
-            }
-            .company-logo {
-                width: 48px;
-                height: 48px;
-                object-fit: contain;
-                border-radius: 10px;
-                background: #fff;
-                box-shadow: 0 2px 8px rgba(42,93,159,0.08);
-                border: 1.5px solid #e0e7ef;
-                padding: 4px;
-                opacity: 0;
-                animation: popInLogo 0.7s forwards;
-            }
-            .animate-pop { opacity: 0; }
-            .job-header .job-title {
-                font-size: 1.11rem;
-                font-weight: bold;
-                color: var(--primary);
-                margin-right: 8px;
-                font-family: 'Fira Mono', monospace;
-            }
-            .job-header .job-period {
-                font-size: 0.97em;
-                color: var(--accent);
-                margin-left: auto;
-                white-space: nowrap;
-            }
-            @keyframes popInLogo {
-                0% { transform: scale(0.7); opacity: 0;}
-                80% { transform: scale(1.1);}
-                100% { transform: scale(1); opacity: 1;}
-            }
-            @keyframes fadeInLeft {
-                from { opacity: 0; transform: translateX(-40px);}
-                to { opacity: 1; transform: translateX(0);}
-            }
-        </style>
-        <script>
-            // Animation logos au scroll
-            function revealLogos() {
-                document.querySelectorAll('.company-logo').forEach((logo, i) => {
-                    const rect = logo.getBoundingClientRect();
-                    if(rect.top < window.innerHeight * 0.95) {
-                        logo.style.opacity = 1;
-                        logo.style.animationDelay = logo.style.animationDelay || (i * 0.1) + 's';
-                        logo.classList.remove('animate-pop');
-                    }
-                });
-            }
-            window.addEventListener('scroll', revealLogos);
-            window.addEventListener('load', revealLogos);
-        </script>
+
+        <section id="competences">
+            <h2 data-fr="Compétences" data-en="Skills">Compétences</h2>
+            <ul class="skills-list">
+                <li data-fr="Gestion de projet: Agile/Scrum, UML, Trello, Product design" data-en="Project Management: Agile/Scrum, UML, Trello, Product design">Gestion de projet: Agile/Scrum, UML, Trello, Product design</li>
+                <li data-fr="Leadership & Entrepreneuriat: Management d'équipe, stratégie digitale" data-en="Leadership & Entrepreneurship: Team management, digital strategy">Leadership & Entrepreneuriat: Management d'équipe, stratégie digitale</li>
+                <li data-fr="IoT & Data Science: Arduino, microcontrôleurs, Raspberry Pi, TensorFlow, PowerBI, Firebase, Pandas, Matplotlib, Keras, ScikitLearn, CNN, SpaCy, FreeRTOS, UART, SPI, I2C" data-en="IoT & Data Science: Arduino, microcontrollers, Raspberry Pi, TensorFlow, PowerBI, Firebase, Pandas, Matplotlib, Keras, ScikitLearn, CNN, SpaCy, FreeRTOS, UART, SPI, I2C">IoT & Data Science: Arduino, microcontrôleurs, Raspberry Pi, TensorFlow, PowerBI, Firebase, Pandas, Matplotlib, Keras, ScikitLearn, CNN, SpaCy, FreeRTOS, UART, SPI, I2C</li>
+                <li data-fr="Systèmes Sécurisés & Cryptographie: Algorithmes, sécurité IoT, Java Card, sécurité embarquée" data-en="Secured Systems & Cryptography: Algorithms, IoT security, Java Card, embedded security">Systèmes Sécurisés & Cryptographie: Algorithmes, sécurité IoT, Java Card, sécurité embarquée</li>
+                <li data-fr="Développement Web & Mobile: React.js, Vue.js, Laravel, Node.js, Flutter, Kotlin, Swift, Next.js" data-en="Web & Mobile Development: React.js, Vue.js, Laravel, Node.js, Flutter, Kotlin, Swift, Next.js">Développement Web & Mobile: React.js, Vue.js, Laravel, Node.js, Flutter, Kotlin, Swift, Next.js</li>
+                <li data-fr="Cloud & DevOps: AWS, Azure, Docker, CI/CD, Node-RED" data-en="Cloud & DevOps: AWS, Azure, Docker, CI/CD, Node-RED">Cloud & DevOps: AWS, Azure, Docker, CI/CD, Node-RED</li>
+                <li data-fr="Soft skills: Autonomie, rigueur, adaptabilité, écoute, esprit d'équipe, curiosité" data-en="Soft skills: Autonomy, rigor, adaptability, listening, teamwork, curiosity">Soft skills: Autonomie, rigueur, adaptabilité, écoute, esprit d'équipe, curiosité</li>
+            </ul>
+        </section>
+
         <section id="formations">
-            <h2>Formations</h2>
+            <h2 data-fr="Formations" data-en="Education">Formations</h2>
             <div class="education">
                 <div class="school">
-                    <span class="school-title">Master Systèmes Informatiques Embarqués, spécialité IoT</span>
-                    <span class="school-period">2023 - 2025 | Université de Franche-Comté, France</span>
+                    <img src="Images/utbm.png" alt="UTBM Logo" class="school-logo">
+                    <div>
+                        <span class="school-title" data-fr="Master Entrepreneuriat Technologique et Innovation" data-en="Master Technological Entrepreneurship and Innovation">Master Entrepreneuriat Technologique et Innovation</span>
+                        <span class="school-period" data-fr="2025 - 2026 | UTBM (Université de Technologie de Belfort-Montbéliard), France" data-en="2025 - 2026 | UTBM (University of Technology of Belfort-Montbéliard), France">2025 - 2026 | UTBM (Université de Technologie de Belfort-Montbéliard), France</span>
+                    </div>
                 </div>
                 <div class="school">
-                    <span class="school-title">Licence Ingénierie Logicielle & Systèmes d’Information</span>
-                    <span class="school-period">Polytechnique UCAD, GITECH SENEGAL, Dakar - Sénégal</span>
+                    <img src="Images/mlp.png" alt="Université de Franche-Comté Logo" class="school-logo">
+                    <div>
+                        <span class="school-title" data-fr="Master Systèmes Informatiques Embarqués, spécialité IoT" data-en="Master Embedded Computer Systems, IoT specialty">Master Systèmes Informatiques Embarqués, spécialité IoT</span>
+                        <span class="school-period" data-fr="2023 - 2025 | Université de Franche-Comté, France" data-en="2023 - 2025 | University of Franche-Comté, France">2023 - 2025 | Université de Franche-Comté, France</span>
+                    </div>
+                </div>
+                <div class="school">
+                    <img src="Images/esp.jpeg" alt="UCAD Logo" class="school-logo">
+                    <div>
+                        <span class="school-title" data-fr="Licence Ingénierie Logicielle & Systèmes d'Information" data-en="Bachelor Software Engineering & Information Systems">Licence Ingénierie Logicielle & Systèmes d'Information</span>
+                        <span class="school-period" data-fr="2020 - 2023 | Ecole Supérieure Polytechnique UCAD, Dakar - Sénégal" data-en="2020 - 2023 | Higher Polytechnic School UCAD, Dakar - Senegal">2020 - 2023 | Ecole Supérieure Polytechnique UCAD, Dakar - Sénégal</span>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section id="projets">
-            <h2>Projets réalisés</h2>
+            <h2 data-fr="Quelques projets réalisés" data-en="Some projects completed">Quelques projets réalisés</h2>
             <div class="projects">
                 <div class="project">
-                    <span class="project-title">Secure IoT Project</span>
+                    <span class="project-title" data-fr="Smart Lock - Serrure Connectée (Master Entrepreneuriat)" data-en="Smart Lock - Connected Lock (Master Entrepreneurship)">Smart Lock - Serrure Connectée (Master Entrepreneuriat)</span>
                     <ul>
-                        <li>Implémentation du chiffrement AES/RSA pour la communication capteur-serveur (Python + Arduino)</li>
+                        <li data-fr="Pilotage complet d'un projet innovant : conception, développement et commercialisation" data-en="Complete project management: design, development and commercialization">Pilotage complet d'un projet innovant : conception, développement et commercialisation</li>
+                        <li data-fr="Gestion de projet Agile, planification budgétaire et présentation aux parties prenantes" data-en="Agile project management, budgeting and stakeholder presentations">Gestion de projet Agile, planification budgétaire et présentation aux parties prenantes</li>
+                        <li data-fr="Intégration IoT avec authentification sécurisée (JWT, HTTPS)" data-en="IoT integration with secure authentication (JWT, HTTPS)">Intégration IoT avec authentification sécurisée (JWT, HTTPS)</li>
+                        <li data-fr="Application mobile de contrôle d'accès et historique des utilisateurs" data-en="Mobile app for access control and user history">Application mobile de contrôle d'accès et historique des utilisateurs</li>
                     </ul>
                 </div>
                 <div class="project">
-                    <span class="project-title">Authentification dans un réseau de capteurs</span>
+                    <span class="project-title" data-fr="Plateforme e-commerce (CRUD Full-Stack)" data-en="E-commerce Platform (Full-Stack CRUD)">Plateforme e-commerce (CRUD Full-Stack)</span>
                     <ul>
-                        <li>Création d’un protocole d’identification avec certificats</li>
+                        <li data-fr="Architecture complète : backend Laravel/Node.js + frontend React/Vue.js" data-en="Complete architecture: Laravel/Node.js backend + React/Vue.js frontend">Architecture complète : backend Laravel/Node.js + frontend React/Vue.js</li>
+                        <li data-fr="Implémentation des opérations CRUD pour produits, utilisateurs et commandes" data-en="Implementation of CRUD operations for products, users and orders">Implémentation des opérations CRUD pour produits, utilisateurs et commandes</li>
+                        <li data-fr="Base de données relationnelle (MySQL) avec optimisations des requêtes" data-en="Relational database (MySQL) with query optimizations">Base de données relationnelle (MySQL) avec optimisations des requêtes</li>
+                        <li data-fr="Système d'authentification et gestion des rôles (admin, client)" data-en="Authentication system and role management (admin, client)">Système d'authentification et gestion des rôles (admin, client)</li>
                     </ul>
                 </div>
                 <div class="project">
-                    <span class="project-title">Optimisation de systèmes embarqués</span>
+                    <span class="project-title" data-fr="Application Mobile - Gestion de Tâches (Flutter/Kotlin)" data-en="Mobile App - Task Management (Flutter/Kotlin)">Application Mobile - Gestion de Tâches (Flutter/Kotlin)</span>
                     <ul>
-                        <li>Contraintes mémoire/énergie (Raspberry Pi, C)</li>
+                        <li data-fr="Développement cross-platform avec synchronisation Firebase en temps réel" data-en="Cross-platform development with real-time Firebase synchronization">Développement cross-platform avec synchronisation Firebase en temps réel</li>
+                        <li data-fr="Interface utilisateur responsive et intuitive" data-en="Responsive and intuitive user interface">Interface utilisateur responsive et intuitive</li>
+                        <li data-fr="Gestion offline et stockage local des données" data-en="Offline management and local data storage">Gestion offline et stockage local des données</li>
                     </ul>
                 </div>
                 <div class="project">
-                    <span class="project-title">Smart Farm</span>
+                    <span class="project-title" data-fr="Système de Gestion d'Équipe & Projets" data-en="Team & Project Management System">Système de Gestion d'Équipe & Projets</span>
                     <ul>
-                        <li>Système d’irrigation automatique piloté par application mobile et capteurs</li>
+                        <li data-fr="Dashboard de pilotage avec assignation de tâches et suivi des sprints" data-en="Management dashboard with task assignment and sprint tracking">Dashboard de pilotage avec assignation de tâches et suivi des sprints</li>
+                        <li data-fr="Implémentation de Scrum avec Trello et métriques de performance" data-en="Scrum implementation with Trello and performance metrics">Implémentation de Scrum avec Trello et métriques de performance</li>
+                        <li data-fr="Base de données multi-utilisateurs avec contrôle d'accès granulaire" data-en="Multi-user database with granular access control">Base de données multi-utilisateurs avec contrôle d'accès granulaire</li>
                     </ul>
                 </div>
                 <div class="project">
-                    <span class="project-title">Système embarqué de monitoring agricole</span>
+                    <span class="project-title" data-fr="Plateforme d'Optimisation de Trajets (IoT + Algorithmes)" data-en="Route Optimization Platform (IoT + Algorithms)">Plateforme d'Optimisation de Trajets (IoT + Algorithmes)</span>
+                    <ul>
+                        <li data-fr="Intégration open data et capteurs IoT pour collecte temps réel" data-en="Integration of open data and IoT sensors for real-time collection">Intégration open data et capteurs IoT pour collecte temps réel</li>
+                        <li data-fr="Algorithmes d'optimisation de parcours (MetropolyTAN - ROADEF)" data-en="Route optimization algorithms (MetropolyTAN - ROADEF)">Algorithmes d'optimisation de parcours (MetropolyTAN - ROADEF)</li>
+                        <li data-fr="Backend haute performance avec base de données géospatiales" data-en="High-performance backend with geospatial database">Backend haute performance avec base de données géospatiales</li>
+                    </ul>
                 </div>
             </div>
         </section>
+
         <section id="interets">
-            <h2>Centres d’intérêt</h2>
+            <h2 data-fr="Centres d'intérêt" data-en="Interests">Centres d'intérêt</h2>
             <ul class="interests-list">
-                <li>Creative coding</li>
-                <li>Exploration de projets personnels</li>
-                <li>Lecture</li>
-                <li>Voyages</li>
-                <li>Football</li>
-                <li>Kung Fu</li>
+                <li data-fr="Creative coding" data-en="Creative coding">Creative coding</li>
+                <li data-fr="Exploration de projets personnels" data-en="Personal projects exploration">Exploration de projets personnels</li>
+                <li data-fr="Lecture" data-en="Reading">Lecture</li>
+                <li data-fr="Voyages" data-en="Traveling">Voyages</li>
+                <li data-fr="Football" data-en="Football">Football</li>
+                <li data-fr="Kung Fu" data-en="Kung Fu">Kung Fu</li>
             </ul>
         </section>
+
         <section id="langues">
-            <h2>Langues</h2>
+            <h2 data-fr="Langues" data-en="Languages">Langues</h2>
             <ul class="languages-list">
-                <li>Français : Lecture, Écriture, Expression orale</li>
-                <li>Anglais : C1 – Courant (Master enseigné en anglais, rédaction & présentations)</li>
+                <li data-fr="Français : Lecture, Écriture, Expression orale" data-en="French: Reading, Writing, Speaking">Français : Lecture, Écriture, Expression orale</li>
+                <li data-fr="Anglais : C1 – Courant (Master enseigné en anglais, rédaction & présentations)" data-en="English: C1 – Fluent (Master taught in English, writing & presentations)">Anglais : C1 – Courant (Master enseigné en anglais, rédaction & présentations)</li>
             </ul>
         </section>
+
         <section id="references">
-            <h2>Références</h2>
+            <h2 data-fr="Références" data-en="References">Références</h2>
             <div class="references">
                 <div class="reference">
-                    <strong>Philippe Canalda</strong> : Maître de conférences, Université de Franche-Comté<br>
+                    <strong data-fr="Philippe Canalda" data-en="Philippe Canalda">Philippe Canalda</strong><br>
+                    <span data-fr="Maître de conférences, Université de Franche-Comté" data-en="Associate Professor, University of Franche-Comté">Maître de conférences, Université de Franche-Comté</span><br>
                     <a href="mailto:philippe.canalda@univ-fcomte.fr">philippe.canalda@univ-fcomte.fr</a>
                 </div>
                 <div class="reference">
-                    <strong>Pr Ibra Dioum</strong> : Professeur, UCAD Dakar<br>
+                    <strong data-fr="Pr Ibra Dioum" data-en="Prof. Ibra Dioum">Pr Ibra Dioum</strong><br>
+                    <span data-fr="Professeur, UCAD Dakar" data-en="Professor, UCAD Dakar">Professeur, UCAD Dakar</span><br>
                     <a href="mailto:ibra.dioum@esp.sn">ibra.dioum@esp.sn</a>
                 </div>
                 <div class="reference">
-                    <strong>Sylvain Noel</strong> : Web Coordinator, Vetoquinol SA<br>
+                    <strong data-fr="Sylvain Noel" data-en="Sylvain Noel">Sylvain Noel</strong><br>
+                    <span data-fr="Web Coordinator, Vetoquinol SA" data-en="Web Coordinator, Vetoquinol SA">Web Coordinator, Vetoquinol SA</span><br>
                     <a href="mailto:sylvain.noel@vetoquinol.com">sylvain.noel@vetoquinol.com</a>
                 </div>
             </div>
         </section>
+
         <section id="contact">
-            <h2>Contact</h2>
+            <h2 data-fr="Contact" data-en="Contact">Contact</h2>
             <form class="contact-form">
-                <label for="name">Nom</label>
+                <label for="name" data-fr="Nom" data-en="Name">Nom</label>
                 <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
+                <label for="email" data-fr="Email" data-en="Email">Email</label>
                 <input type="email" id="email" name="email" required>
-                <label for="message">Message</label>
+                <label for="message" data-fr="Message" data-en="Message">Message</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit">Envoyer</button>
+                <button type="submit" data-fr="Envoyer" data-en="Send">Envoyer</button>
             </form>
         </section>
-        <footer>
+
+        <footer data-fr="&copy; 2024 Khadim GUEYE. Tous droits réservés." data-en="&copy; 2024 Khadim GUEYE. All rights reserved.">
             &copy; 2024 Khadim GUEYE. Tous droits réservés.
         </footer>
     </main>
+
     <script>
+        // Language Switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const htmlElement = document.getElementById('htmlElement');
+        
+        // Load saved language preference
+        const savedLang = localStorage.getItem('language') || 'fr';
+        switchLanguage(savedLang);
+        
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                switchLanguage(lang);
+                localStorage.setItem('language', lang);
+            });
+        });
+        
+        function switchLanguage(lang) {
+            htmlElement.lang = lang;
+            langBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+            
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.dataset.en;
+                } else {
+                    element.textContent = element.dataset.fr;
+                }
+            });
+        }
+
         // Animation au scroll
         const sections = document.querySelectorAll('section');
         function revealSections() {
@@ -751,12 +871,14 @@
         burger.addEventListener('click', () => {
             sidebar.classList.toggle('open');
         });
+        
         // Close sidebar on link click (mobile)
-        sidebar.querySelectorAll('a').forEach(link => {
+        sidebar.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', () => {
                 if(window.innerWidth < 900) sidebar.classList.remove('open');
             });
         });
     </script>
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="fr" id="htmlElement">   

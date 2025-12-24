@@ -55,14 +55,14 @@
             gap: 12px;
         }
         #profile-photo {
-            width: 75%;
-            height: 22vh;
-            border-radius: 0%;
-            object-fit: cover;
-            border: 2.5px solid rgba(255,255,255,0.18);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            flex-shrink: 0;
-            transform: rotate(-90deg);
+          width: 60%;
+    height: 23vh;
+    border-radius: 11%;
+    object-fit: cover;
+    border: 2.5px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+          
         }
         .sidebar h1 {
             font-size: 1.5rem;
@@ -147,7 +147,7 @@
             justify-content: center;
         }
         .language-switcher button {
-            flex: 1;
+            
             padding: 10px 12px;
             background: rgba(255,255,255,0.15);
             color: var(--white);
@@ -247,7 +247,7 @@
         }
         .job-period, .school-period, .project-period {
             color: var(--accent);
-            font-size: 0.97em;
+            font-size: 0.99em;
         }
         .job-header {
             display: flex;
@@ -381,6 +381,14 @@
             }
         }
         @media (max-width: 700px) {
+              #profile-photo {
+          width: 45%;
+    height: 23vh;
+    border-radius: 11%;
+    object-fit: cover;
+    border: 2.5px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
             .sidebar {
                 width: 170px;
             }
@@ -458,7 +466,7 @@
         }
         .name-animated {
             display: inline-block;
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             background: linear-gradient(90deg, #2a5d9f, #5fd2b5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -468,7 +476,7 @@
         }
         .surname-animated {
             display: inline-block;
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             background: linear-gradient(90deg, #2a5d9f, #5fd2b5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -534,7 +542,7 @@
     </div>
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-top">
-            <img id="profile-photo" src="Images/me.jpeg" alt="Photo de Khadim GUEYE">
+            <img id="profile-photo" src="Images/me.png" alt="Photo de Khadim GUEYE">
         </div>
        
         <div class="header-contact">
@@ -594,7 +602,7 @@
                     <div class="job-header">
                         <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Vetoquinol Logo" class="company-logo">
                         <div>
-                            <span class="job-title" data-fr="Alternant IT - Gestion de projet & outils métiers" data-en="IT Intern - Project Management & Business Tools">Alternant IT - Gestion de projet & outils métiers</span>
+                            <span class="job-title" data-fr="Alternant IT - Gestion de projet & outils métiers" data-en="IT Intern - Project Management & Business Tools"> Alternant IT - Gestion de projet & outils métiers</span>
                             <span class="job-period" data-fr="VETOQUINOL SA, Août 2025 - Présent, Lure - France" data-en="VETOQUINOL SA, August 2025 - Present, Lure - France">VETOQUINOL SA, Août 2025 - Présent, Lure - France</span>
                         </div>
                     </div>
@@ -609,18 +617,36 @@
                         <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Vetoquinol Logo" class="company-logo">
                         <div>
                             <span class="job-title" data-fr="Développeur - Webmaster" data-en="Developer - Webmaster">Développeur - Webmaster</span>
-                            <span class="job-period" data-fr="VETOQUINOL SA, Septembre 2024 - Août 2025, Lure - France" data-en="VETOQUINOL SA, September 2024 - August 2025, Lure - France">VETOQUINOL SA, Septembre 2024 - Août 2025, Lure - France</span>
+                            <span class="job-period" data-fr="VETOQUINOL SA, Septembre 2024 - Août 2025, Lure - France" data-en="VETOQUINOL SA, September 2024 - August 2025, Lure - France"> VETOQUINOL SA, Septembre 2024 - Août 2025, Lure - France</span>
                         </div>
                     </div>
                     <ul>
                         <li data-fr="Gestion de la transition et optimisation SEO lors de la migration du site web" data-en="Management of transition and SEO optimization during website migration">Gestion de la transition et optimisation SEO lors de la migration du site web</li>
                         <li data-fr="Collaboration avec équipes locales et internationales" data-en="Collaboration with local and international teams">Collaboration avec équipes locales et internationales</li>
-                        <li data-fr="Recherche sur la surveillance des conditions de stockage des médicaments (ESP32/Arduino, MQTT, Node-RED, base de données + dashboard)" data-en="Research on monitoring medicine storage conditions (ESP32/Arduino, MQTT, Node-RED, database + dashboard)">Recherche sur la surveillance des conditions de stockage des médicaments (ESP32/Arduino, MQTT, Node-RED, base de données + dashboard)</li>
+                        <li data-fr="Maintenance et amélioration continue du site web (WordPress, HTML, CSS, JS)" data-en="Maintenance and continuous improvement of the website (WordPress, HTML, CSS, JS)">Maintenance et amélioration continue du site web (WordPress, HTML, CSS, JS)</li>
+                        <li 
+                            data-fr="Recherche sur un système de chattier connecté (ESP32/Arduino, MQTT, Node-RED, base de données + dashboard)" 
+                            data-en="Research on a connected cattery system (ESP32/Arduino, MQTT, Node-RED, database + dashboard)">
+                            Recherche sur un système de chattier connecté (ESP32/Arduino, MQTT, Node-RED, base de données + dashboard)
+                        </li>
+
+                    </ul>
+                </div>
+                   <div class="job">
+                    <div class="job-header">
+                        <img src="Images/téléchargement.png" alt="Oxytronic Logo" class="company-logo">
+                        <div>
+                            <span class="job-title" data-fr="Stage d'observation" data-en="Observation Internship">Stage d'observation</span>
+                            <span class="job-period" data-fr="Oxytronic & Multiwave Technologies, Marseille - France" data-en="Oxytronic & Multiwave Technologies, Marseille - France">Oxytronic & Multiwave Technologies, Marseille - France</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li data-fr="Découverte du secteur aérospatial et santé, approfondissement de la fabrication d'équipements électroniques" data-en="Discovery of aerospace and health sectors, deepening of electronic equipment manufacturing">Découverte du secteur aérospatial et santé, approfondissement de la fabrication d'équipements électroniques</li>
                     </ul>
                 </div>
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="MetropolyTAN Logo" class="company-logo">
+                        <img src="Images/Metre.png" alt="MetropolyTAN Logo" class="company-logo">
                         <div>
                             <span class="job-title" data-fr="Lead Developper IoT" data-en="Lead Developer IoT">Lead Developper IoT</span>
                             <span class="job-period" data-fr="MetropolyTAN - Portes du Jura, Septembre 2023 - Mai 2024, Montbéliard - France" data-en="MetropolyTAN - Portes du Jura, September 2023 - May 2024, Montbéliard - France">MetropolyTAN - Portes du Jura, Septembre 2023 - Mai 2024, Montbéliard - France</span>
@@ -636,7 +662,7 @@
                 </div>
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Devalot Digital Logo" class="company-logo">
+                        <img src="Images/devalot.png" alt="Devalot Digital Logo" class="company-logo">
                         <div>
                             <span class="job-title" data-fr="Co-Fondateur & Lead Dev" data-en="Co-Founder & Lead Dev">Co-Fondateur & Lead Dev</span>
                             <span class="job-period" data-fr="Devalot Digital, 2022 - 2023, Dakar - Sénégal" data-en="Devalot Digital, 2022 - 2023, Dakar - Senegal">Devalot Digital, 2022 - 2023, Dakar - Sénégal</span>
@@ -648,21 +674,10 @@
                         <li data-fr="Développement backend (PHP, Laravel) et intégration frontend (Angular, Bootstrap)" data-en="Backend development (PHP, Laravel) and frontend integration (Angular, Bootstrap)">Développement backend (PHP, Laravel) et intégration frontend (Angular, Bootstrap)</li>
                     </ul>
                 </div>
+             
                 <div class="job">
                     <div class="job-header">
-                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Oxytronic Logo" class="company-logo">
-                        <div>
-                            <span class="job-title" data-fr="Stage d'observation" data-en="Observation Internship">Stage d'observation</span>
-                            <span class="job-period" data-fr="Oxytronic & Multiwave Technologies, Marseille - France" data-en="Oxytronic & Multiwave Technologies, Marseille - France">Oxytronic & Multiwave Technologies, Marseille - France</span>
-                        </div>
-                    </div>
-                    <ul>
-                        <li data-fr="Découverte du secteur aérospatial et santé, approfondissement de la fabrication d'équipements électroniques" data-en="Discovery of aerospace and health sectors, deepening of electronic equipment manufacturing">Découverte du secteur aérospatial et santé, approfondissement de la fabrication d'équipements électroniques</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <div class="job-header">
-                        <img src="https://www.vetoquinol.com/sites/corpo/files/logo.png" alt="Gitechsn Logo" class="company-logo">
+                        <img src="Images/gitech_senegal_sarl_logo.jpeg" alt="Gitechsn Logo" class="company-logo">
                         <div>
                             <span class="job-title" data-fr="Stage - Développeur Full-Stack" data-en="Internship - Full-Stack Developer">Stage - Développeur Full-Stack</span>
                             <span class="job-period" data-fr="Gitechsn, Dakar - Sénégal" data-en="Gitechsn, Dakar - Senegal">Gitechsn, Dakar - Sénégal</span>
@@ -766,12 +781,10 @@
         <section id="interets">
             <h2 data-fr="Centres d'intérêt" data-en="Interests">Centres d'intérêt</h2>
             <ul class="interests-list">
-                <li data-fr="Creative coding" data-en="Creative coding">Creative coding</li>
-                <li data-fr="Exploration de projets personnels" data-en="Personal projects exploration">Exploration de projets personnels</li>
-                <li data-fr="Lecture" data-en="Reading">Lecture</li>
-                <li data-fr="Voyages" data-en="Traveling">Voyages</li>
-                <li data-fr="Football" data-en="Football">Football</li>
-                <li data-fr="Kung Fu" data-en="Kung Fu">Kung Fu</li>
+                <li data-fr="📚 Lecture" data-en="📚 Reading">📚 Lecture</li>
+                <li data-fr="✈️ Voyages" data-en="✈️ Traveling">✈️ Voyages</li>
+                <li data-fr="⚽ Football" data-en="⚽ Football">⚽ Football</li>
+                <li data-fr="🥋 Kung Fu" data-en="🥋 Kung Fu">🥋 Kung Fu</li>
             </ul>
         </section>
 
@@ -806,18 +819,18 @@
 
         <section id="contact">
             <h2 data-fr="Contact" data-en="Contact">Contact</h2>
-            <form class="contact-form">
-                <label for="name" data-fr="Nom" data-en="Name">Nom</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email" data-fr="Email" data-en="Email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message" data-fr="Message" data-en="Message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit" data-fr="Envoyer" data-en="Send">Envoyer</button>
+            <form class="contact-form" action="https://formspree.io/f/mzznkazz" method="POST">
+            <label for="name" data-fr="Nom" data-en="Name">Nom</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email" data-fr="Email" data-en="Email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message" data-fr="Message" data-en="Message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit" data-fr="Envoyer" data-en="Send">Envoyer</button>
             </form>
         </section>
 
-        <footer data-fr="&copy; 2024 Khadim GUEYE. Tous droits réservés." data-en="&copy; 2024 Khadim GUEYE. All rights reserved.">
+        <footer data-fr="&copy; 2025 Khadim GUEYE. Tous droits réservés." data-en="&copy; 2025 Khadim GUEYE. All rights reserved.">
             &copy; 2024 Khadim GUEYE. Tous droits réservés.
         </footer>
     </main>
